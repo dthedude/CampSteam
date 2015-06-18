@@ -30,17 +30,47 @@ public class Restaurant{
 
     public static void main(String [] args){
         Scanner scan = new Scanner(System.in);
-        int input = 0;
+        
+int input = 0;
         double allowance = 10.00;
         double pizzaPrice = 2.50;
         double iceCreamPrice = 2.00;
         double sodaPrice = 1.50;
 
-        while(true){ /* FIX WHILE CONDITION */
+        while(allowance>1.50){ /* FIX WHILE CONDITION */
             printAllowance(allowance);
             printMenu();
-
+			
             input = scan.nextInt();
+		if(input==1){
+		    if(allowance < pizzaPrice){
+                        printFailure("PIZZA");
+                    }
+	            else{
+                        allowance=allowance-pizzaPrice;
+                    }
+                }
+
+		else if(input==2){
+                    if(allowance < iceCreamPrice){
+                        printFailure("Ice Cream");
+                    }
+                    else{
+                        allowance=allowance-iceCreamPrice;
+                    }
+		}
+		else if(input==3){
+                    if(allowance < sodaPrice){
+                        printFailure("Soda");
+                    }
+                    else{
+                        allowance=allowance-sodaPrice;
+                    }
+		}
+		else if (input == 4){
+                	System.out.println("Goodbye, have a great day");
+			break;
+		}
             /**
              *
              * ENTER YOUR CODE HERE
@@ -48,7 +78,6 @@ public class Restaurant{
              * HINTS:
              * printFailure("Soda"); -- prints "You do not have enough money remaining to purchase Soda"
              * printFailure("Ice Cream"); -- prints "You do not have enough money remaining to purchase Ice Cream"
-             * printFailure("Pizza"); -- prints "You do not have enough money remaining to purchase Pizza"
              *
              */
         }
